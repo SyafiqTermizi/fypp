@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>FYP</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    {% load static %}
+    <link href="{% static "main.css" %}" rel="stylesheet">
+</head>
+
+<body style="background-color: #ecf0f1">
+
+	<nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url 'index' %}"></span><b>Search</b></a></li>
+			    <li><a href="{% url 'trends' %}"></span><b>Trends</b></a></li>
+                <li><a href="{% url 'saved_items' %}"></span><b>Saved Items</b></a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+    <div class="container" style="margin-top: 10%">
+        <div class="col-lg-4" style="float: none; margin: 0 auto;">
+            <div class="panel panel-default" style="padding: 10%">
+
+                <form class="form-horizontal" action="{% url 'search_index' %}" method="GET" id="myForm" name="myForm" onsubmit="return validateForm()">
+
+                    <div class="form-group">
+                        <input id="search_item" type="text" name="search_item" class="form-control" placeholder="Search item">
+                    </div>
+
+                    <div class="form-group">
+                        <input id="search_count" type="text" name="search_count" class="form-control" placeholder="Search count">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="max_id">Max ID:</label>
+                        <input id="max_id" type="text" name="max_id" class="form-control" placeholder="Max id" value="0">
+                    </div>
+
+                    <div class="form-group" style="margin-left: 12%; margin-top: 5%">
+                        <label class="radio"><input type="radio" name="choice" id="choice1" value="1">Search by Screen Name</label>
+                        <label class="radio"><input type="radio" name="choice" id="choice2" value="2">Search by Keyword</label>
+                        <label class="radio"><input type="radio" name="choice" id="choice3" value="3">Search by Tweet ID</label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block"><b style="color:white;">Search</b></button>
+                    <a href="{% url 'index' %}" class="btn btn-warning btn-block"><b style="color:white;">Clear</b></a>
+
+                </form>
+            </div>
+
+            <div hidden id="alert_box" class="alert alert-warning">
+                <strong>Attention!</strong> Please fill in all the search details.
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
+
+<script>
+
+function validateForm() {
+    if (document.forms["myForm"]["search_item"].value == "") {
+        document.getElementById("alert_box").removeAttribute("hidden");
+        return false;
+    }
+
+    if((document.getElementById("choice1").checked == false) && (document.getElementById("choice2").checked == false) && (document.getElementById("choice3").checked == false)){
+        document.getElementById("alert_box").removeAttribute("hidden");
+        return false;
+    }
+}//end validate form
+
+</script>
