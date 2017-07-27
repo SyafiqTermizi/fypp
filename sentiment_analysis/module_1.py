@@ -35,11 +35,11 @@ class module_one():
 	def __init__(self):
 		import tweepy
 
-		consumer_key = '01yd6rEL6O7tHKrUEROgF5EPV'
-		consumer_secret = 'Mt5h5kbr3qxcKqICGAxymj1k6o1MTxvf5zfQAo2u9j588CnBcn'
+		consumer_key = '#'
+		consumer_secret = '#'
 
-		access_token = '475820825-wgWG2LbA9PxjjieBHwTzvfCDZ4gnsO56p3RYalKQ'
-		access_token_secret = 'eTerBEgALL3EqS6F5FfKRz4QdOXVP68EzNUQOMTwghxsX'
+		access_token = '#'
+		access_token_secret = '#'
 
 		auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 		auth.set_access_token(access_token, access_token_secret)
