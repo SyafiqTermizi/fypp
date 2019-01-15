@@ -12,7 +12,7 @@ a = module_two()
 
 def index(request):
 	template = loader.get_template('sentiment_analysis/index.html')
-	return HttpResponse(template.render(request))
+	return HttpResponse(template.render())
 
 def get_search_form(request):
 

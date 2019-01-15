@@ -9,7 +9,7 @@ class Keyword_search(models.Model):
 class Keyword_tweets(models.Model):
 	tweet_id = models.BigIntegerField(primary_key=True)
 	user_id = models.BigIntegerField()
-	keyword = models.ForeignKey('Keyword_search')
+	keyword = models.ForeignKey('Keyword_search', on_delete=models.CASCADE)
 	tweet_text = models.CharField(max_length=140)
 	reply_to_tweet_id = models.BigIntegerField(null=True)
 	reply_to_user_id = models.BigIntegerField(null=True)
@@ -36,7 +36,7 @@ class User_details(models.Model):
 
 class User_tweets(models.Model):
 	tweet_id = models.BigIntegerField(primary_key=True)
-	user_id = models.ForeignKey('User_details')
+	user_id = models.ForeignKey('User_details', on_delete=models.CASCADE)
 	tweet_text = models.CharField(max_length=140)
 	reply_to_tweet_id = models.BigIntegerField(null=True)
 	reply_to_user_id = models.BigIntegerField(null=True)
