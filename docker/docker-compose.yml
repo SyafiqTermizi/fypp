@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+
+  fyp_db:
+    image: postgres:10.1-alpine
+    environment:
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - 5400:5432
+
+  fyp_app:
+    build:
+      context: ../
+      dockerfile: ./docker/Dockerfile
+    image: fyp_app
+    depends_on:
+      - fyp_db
+    volumes:
+      - ..:/app
+    env_file:
+      - ../.env
+    ports:
+      - "8000:80"
+    command: /start

@@ -49,7 +49,7 @@ class naive_bayes_c():
 		pos_text=[]
 		neg_text=[]
 		counter = 0
-		while counter < 9000:
+		while counter < int(os.environ.get('TRAINING_DATA_COUNT')):
 			pos_text.append(pos_text_full[counter])
 			neg_text.append(neg_text_full[counter])
 			counter += 1
