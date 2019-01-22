@@ -1,12 +1,17 @@
-from .models import Keyword_search, Keyword_tweets, User_details, User_tweets
-from nltk.corpus import stopwords
-from collections import Counter
-from nltk import bigrams
-from .naive_bayes_oop import naive_bayes_c
 import re, string, os
+
+from collections import Counter
+
+from nltk.corpus import stopwords
+from nltk import bigrams
+
 from fyp.settings import BASE_DIR
+from .naive_bayes_oop import naive_bayes_c
+from .models import Keyword_search, Keyword_tweets, User_details, User_tweets
+
 pos_path = os.path.join(BASE_DIR, 'positive-words.txt')
 neg_path = os.path.join(BASE_DIR, 'negative-words.txt')
+
 
 class module_two():
 

@@ -1,5 +1,7 @@
-from django.http import HttpResponse
 import json
+
+from django.http import HttpResponse
+
 
 # Common base class for FC
 class FusionCharts:
@@ -29,6 +31,7 @@ class FusionCharts:
       self.constructorOptions['dataFormat'] = dataFormat
       #dataSource = unicode(dataSource, errors='replace')
       self.constructorOptions['dataSource'] = dataSource
+
    # render the chart created
    # It prints a script and calls the FusionCharts javascript render method of created chart   
    def render(self):

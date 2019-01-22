@@ -1,6 +1,8 @@
 import re
-from nltk.corpus import stopwords
 import string
+
+from nltk.corpus import stopwords
+
 
 class text_preprocess:
 

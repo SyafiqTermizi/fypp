@@ -1,12 +1,14 @@
+import math
+
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect, HttpResponse
 from django.template import loader
+
 from .forms import SearchForm, TrendForm
 from .module_1 import module_one
 from .module_2 import module_two
 from .models import Keyword_search, Keyword_tweets, User_details, User_tweets
 from .fusioncharts import FusionCharts
-import math
 
 a = module_two()
 
@@ -213,7 +215,9 @@ def analyse_tweets(request, analysis_item):
 		data['value'] = count
 		graph_two['data'].append(data)
 
-	graph_two_render = FusionCharts("column2D", "graph_two" , "600", "350", "chart_two", "json", graph_two).render()
+	graph_two_render = FusionCharts(
+		"column2D", "graph_two" , "600", "350", "chart_two", "json", graph_two
+	).render()
 
 	#for gauge one, word distribution
 	positive_percent = math.floor((a.positive/(a.negative + a.positive))*100)
@@ -298,10 +302,14 @@ def analyse_tweets(request, analysis_item):
         ]
 	}
 
-	gauge_one_render = FusionCharts("angulargauge", "gauge_one" , "450", "300", "meter_one", "json", gauge_one).render()
+	gauge_one_render = FusionCharts(
+		"angulargauge", "gauge_one" , "450", "300", "meter_one", "json", gauge_one
+	).render()
 
 	#gauge 3 for sentiment analysis
-	tweets_sentiment_score = math.floor((a.positive_tweet / (a.positive_tweet + a.negative_tweet)) * 100)
+	tweets_sentiment_score = math.floor(
+		(a.positive_tweet / (a.positive_tweet + a.negative_tweet)) * 100
+	)
 
 	gauge_two = {}
 	gauge_two['chart'] = {
@@ -382,7 +390,9 @@ def analyse_tweets(request, analysis_item):
         ]
 	}
 
-	gauge_two_render = FusionCharts("angulargauge", "gauge_two" , "450", "300", "meter_two", "json", gauge_two).render()
+	gauge_two_render = FusionCharts(
+		"angulargauge", "gauge_two" , "450", "300", "meter_two", "json", gauge_two
+	).render()
 
 	context = {
 		'output_2': graph_two_render,

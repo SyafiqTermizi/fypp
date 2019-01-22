@@ -1,10 +1,13 @@
 from django.db import models
 
+
 class Keyword_search(models.Model):
 	keyword = models.CharField(primary_key=True, max_length = 200)
 	search_count = models.IntegerField()
+
 	def __str__(self):
 		return self.keyword
+
 
 class Keyword_tweets(models.Model):
 	tweet_id = models.BigIntegerField(primary_key=True)
@@ -18,6 +21,7 @@ class Keyword_tweets(models.Model):
 	created_at = models.DateTimeField()
 	user_screen_name = models.CharField(max_length=200)
 	no_of_rt = models.IntegerField(null=True)
+
 
 class User_details(models.Model):
 	user_id = models.BigIntegerField(primary_key=True)
@@ -33,6 +37,7 @@ class User_details(models.Model):
 
 	def __str__(self):
 		return self.screen_name
+
 
 class User_tweets(models.Model):
 	tweet_id = models.BigIntegerField(primary_key=True)

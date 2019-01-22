@@ -1,10 +1,15 @@
-import nltk, os
-from tqdm import tqdm
-from .text_preprocess import text_preprocess
-from fyp.settings import BASE_DIR
+import os
 from datetime import datetime, date, time
+
+import nltk
+from tqdm import tqdm
+
+from fyp.settings import BASE_DIR
+from .text_preprocess import text_preprocess
+
 train_dataset_text = os.path.join(BASE_DIR, 'train_dataset_text.txt')
 train_dataset_sentiment = os.path.join(BASE_DIR, 'train_dataset_sentiment.txt')
+
 
 class naive_bayes_c():
 

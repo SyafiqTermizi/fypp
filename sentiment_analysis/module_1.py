@@ -1,7 +1,9 @@
 import os
 
 import tweepy
+
 from .models import Keyword_search, Keyword_tweets, User_details, User_tweets
+
 
 class module_one():
 
@@ -179,7 +181,13 @@ class module_one():
 		self.result_search_count=[]
 
 	def createKeywordListZip(self):
-		self.result_keyword_list_zip = zip(self.result_retweet_count, self.result_geo, self.result_created_at, self.result_text, self.result_id, self.result_in_reply_to_status_id, self.result_in_reply_to_screen_name, self.result_in_reply_to_user_id, self.result_user_id, self.result_user_verified, self.result_user_name)
+		self.result_keyword_list_zip = zip(self.result_retweet_count, self.result_geo,
+										   self.result_created_at, self.result_text,
+										   self.result_id, self.result_in_reply_to_status_id,
+										   self.result_in_reply_to_screen_name,
+										   self.result_in_reply_to_user_id,
+										   self.result_user_id, self.result_user_verified,
+										   self.result_user_name)
 
 	def createTrendDataZip(self):
 		self.result_trend_data_zip = zip(self.result_trend_name, self.result_trend_volume)
@@ -245,7 +253,11 @@ class module_one():
 				counter += 1
 
 	def createUserListZip(self):
-		self.result_user_list_zip = zip(self.result_user_id, self.result_user_name,	self.result_user_verified, self.result_user_followers_count, self.result_user_friends_count, self.result_user_status_count,	self.result_user_favourites_count, self.result_user_description, self.result_user_created_at, self.result_user_location)
+		self.result_user_list_zip = zip(self.result_user_id, self.result_user_name,
+										self.result_user_verified, self.result_user_followers_count,
+										self.result_user_friends_count, self.result_user_status_count,
+										self.result_user_favourites_count, self.result_user_description,
+										self.result_user_created_at, self.result_user_location)
 
 	def displaySavedItem(self):
 		self.clearVariables()
@@ -293,7 +305,11 @@ class module_one():
 			self.result_user_name.append(items.user_screen_name)
 			self.result_retweet_count.append(items.no_of_rt)
 
-		self.savedTweetsZip = zip(self.result_id, self.result_user_id, self.result_text, self.result_in_reply_to_status_id, self.result_in_reply_to_user_id, self.result_geo, self.result_user_verified, self.result_created_at, self.result_user_name,	self.result_retweet_count)
+		self.savedTweetsZip = zip(self.result_id, self.result_user_id, self.result_text,
+								  self.result_in_reply_to_status_id,
+								  self.result_in_reply_to_user_id, self.result_geo,
+								  self.result_user_verified, self.result_created_at,
+								  self.result_user_name,	self.result_retweet_count)
 
 	def displaySavedKeywordTweets(self, key_word):
 		self.clearVariables()
@@ -313,4 +329,7 @@ class module_one():
 			self.result_user_name.append(items.user_screen_name)
 			self.result_retweet_count.append(items.no_of_rt)
 
-		self.savedTweetsZip = zip(self.result_id, self.result_user_id, self.result_text, self.result_in_reply_to_status_id, self.result_in_reply_to_user_id, self.result_geo, self.result_user_verified, self.result_created_at, self.result_user_name,	self.result_retweet_count)
+		self.savedTweetsZip = zip(self.result_id, self.result_user_id, self.result_text,
+								  self.result_in_reply_to_status_id, self.result_in_reply_to_user_id,
+								  self.result_geo, self.result_user_verified, self.result_created_at,
+								  self.result_user_name,	self.result_retweet_count)
