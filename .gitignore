@@ -278,7 +278,6 @@ pip-selfcheck.json
 
 
 ### Project template
-.env
 .vscode/settings.json
 .vscode/*
 
