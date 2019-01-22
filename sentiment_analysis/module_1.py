@@ -1,3 +1,5 @@
+import os
+
 import tweepy
 from .models import Keyword_search, Keyword_tweets, User_details, User_tweets
 
@@ -35,11 +37,11 @@ class module_one():
 	def __init__(self):
 		import tweepy
 
-		consumer_key = '#'
-		consumer_secret = '#'
+		consumer_key = os.environ.get('TW_CONSUMER_KEY')
+		consumer_secret = os.environ.get('TW_CONSUMER_SECRET')
 
-		access_token = '#'
-		access_token_secret = '#'
+		access_token = os.environ.get('TW_ACCESS_TOKEN')
+		access_token_secret = os.environ.get('TW_ACCESS_TOKEN_SECRET')
 
 		auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 		auth.set_access_token(access_token, access_token_secret)
